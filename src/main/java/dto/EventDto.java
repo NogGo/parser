@@ -3,24 +3,15 @@ package dto;
 
 public class EventDto {
 
-    private Long id;
-    private String title;
+    private Integer title;
     private Double kefM;
-    private Double getKefB;
+    private Double kefB;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
+    public Integer getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(Integer title) {
         this.title = title;
     }
 
@@ -32,11 +23,11 @@ public class EventDto {
         this.kefM = kefM;
     }
 
-    public Double getGetKefB() {
-        return getKefB;
+    public Double getKefB() {
+        return kefB;
     }
 
-    public void setGetKefB(Double getKefB) {
-        this.getKefB = getKefB;
+    public void setKefB(Double getKefB) {
+        this.kefB = getKefB;
     }
 }

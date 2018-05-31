@@ -1,17 +1,72 @@
-2018-05-27 13:52:18 INFO  logic.Parser:19 - start parsing...
-2018-05-27 13:52:18 INFO  logic.Parser:42 - get All Links in basketball...
-2018-05-27 13:52:22 INFO  logic.Parser:46 - TimeReqest(getAllEventsBasketball): 3.803 с.
-2018-05-27 13:52:22 INFO  logic.Parser:49 - Size links: 9
-2018-05-27 13:52:32 INFO  logic.Parser:37 - END!
-2018-05-27 13:53:21 INFO  AppMain:11 - ---------------------------------------------------
-2018-05-27 13:53:21 INFO  logic.Parser:19 - start parsing...
-2018-05-27 13:53:21 INFO  logic.Parser:42 - get All Links in basketball...
-2018-05-27 13:53:23 INFO  logic.Parser:46 - TimeReqest(getAllEventsBasketball): 2.654 с.
-2018-05-27 13:53:23 INFO  logic.Parser:49 - Size links: 9
-2018-05-27 13:53:33 INFO  logic.Parser:37 - --------------------------------------------------!
-2018-05-27 17:11:42 INFO  AppMain:10 - ---------------------------------------------------
-2018-05-27 17:11:42 INFO  Parser:21 - start parsing...
-2018-05-27 17:11:42 INFO  Parser:51 - get All Links in basketball...
-2018-05-27 17:11:45 INFO  Parser:55 - TimeReqest(getAllEventsBasketball): 2.743 с.
-2018-05-27 17:11:45 INFO  Parser:58 - Size links: 11
-2018-05-27 17:11:57 INFO  Parser:46 - -----------------------------------------------------
+2018-05-30 19:12:49 INFO  AppMain:19 - ===================================
+2018-05-30 19:12:56 INFO  JsoupWorks:17 - getAllUrls()
+2018-05-30 19:12:56 INFO  JsoupWorks:22 - getLinks() start
+2018-05-30 19:12:58 INFO  JsoupWorks:26 - TimeReqest(getLinks()): 1.621 с.
+2018-05-30 19:12:58 INFO  JsoupWorks:29 - Size links: 10
+2018-05-30 19:12:58 INFO  SelenWorks:25 - reqPages() start
+2018-05-30 19:13:16 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):5.125с.
+2018-05-30 19:13:25 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.923с.
+2018-05-30 19:13:33 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.364с.
+2018-05-30 19:13:42 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):4.589с.
+2018-05-30 19:13:51 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.192с.
+2018-05-30 19:14:00 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.75с.
+2018-05-30 19:14:08 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.448с.
+2018-05-30 19:14:15 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.191с.
+2018-05-30 19:14:23 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.843с.
+2018-05-30 19:14:31 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.284с.
+2018-05-30 19:14:31 INFO  SelenWorks:42 - TimeReqest(reqPages()):92.927с.
+2018-05-30 19:14:31 INFO  JsoupWorks:43 - getDocFromStr() start
+2018-05-30 19:14:31 INFO  HandlerMapper:13 - map() start
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Хапоэль Холон
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Хапоэль Эйлат
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        АБА Леньяно (15)
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Оксиген Оранж1 (15)
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Палаканестро Вадо (15)
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Сан-Ладзаро (15)
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Нептунас
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Летувос Ритас
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Шабаб Риф Хосейма
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        ФУС Рабат
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        УБ Трансильвания
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Стяуа КСМ Эксимбанк
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Берое Стара Загора (19)
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Чемпион-2006 (19)
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Будафоки КК
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        БКГ Прима СЕ
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Вашаш Академия
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Тегетшегеш Фиоталок
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Вршац
+2018-05-30 19:14:31 INFO  HandlerMapper:17 -        Мега Бемакс
+2018-05-30 19:14:31 INFO  HandlerMapper:19 -        -----------------------
+2018-05-30 21:04:29 INFO  AppMain:19 - ===================================
+2018-05-30 21:04:43 INFO  JsoupWorks:17 - getAllUrls()
+2018-05-30 21:04:43 INFO  JsoupWorks:22 - getLinks() start
+2018-05-30 21:04:46 INFO  JsoupWorks:26 - TimeReqest(getLinks()): 2.938 с.
+2018-05-30 21:04:46 INFO  JsoupWorks:29 - Size links: 14
+2018-05-30 21:04:46 INFO  SelenWorks:25 - reqPages() start
+2018-05-30 21:05:03 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):4.457с.
+2018-05-30 21:05:12 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.069с.
+2018-05-30 21:05:19 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.544с.
+2018-05-30 21:05:25 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):1.352с.
+2018-05-30 21:05:30 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):1.676с.
+2018-05-30 21:05:37 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.929с.
+2018-05-30 21:05:43 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):3.081с.
+2018-05-30 21:05:49 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.017с.
+2018-05-30 21:05:55 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):1.722с.
+2018-05-30 21:06:02 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.26с.
+2018-05-30 21:06:08 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.352с.
+2018-05-30 21:06:14 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.176с.
+2018-05-30 21:06:20 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.327с.
+2018-05-30 21:06:27 INFO  SelenWorks:36 -        LocalTimeReqest(reqPages()):2.709с.
+2018-05-30 21:06:27 INFO  SelenWorks:42 - TimeReqest(reqPages()):101.172с.
+2018-05-30 21:06:27 INFO  JsoupWorks:43 - getDocFromStr() start
+2018-05-30 21:06:27 INFO  HandlerMapper:21 - map() start
