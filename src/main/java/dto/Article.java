@@ -3,14 +3,16 @@ package dto;
 public class Article{
     private String url;
     private String name;
+    private String  periud;
 
     public Article(String url) {
         this.url = url;
     }
 
-    public Article(String url, String name) {
+    public Article(String url, String name, String  periud) {
         this.url = url;
         this.name = name;
+        this.periud = periud;
     }
 
     public String getUrl() {
@@ -27,6 +29,14 @@ public class Article{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String  getPeriud() {
+        return periud;
+    }
+
+    public void setPeriud(String  periud) {
+        this.periud = periud;
     }
 
     @Override

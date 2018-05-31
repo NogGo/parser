@@ -26,19 +26,25 @@ public class SelenWorks {
         List<String> listSelDoc = new ArrayList<>();
         Long ll = System.currentTimeMillis();
         list.forEach(li -> {
+            boolean flagSelWorks = true;
+                if (!li.getPeriud().equals("Перерыв")){
+                    Integer  per = Integer.parseInt(li.getPeriud().substring(0, 1));
+                    if (per == 4){ flagSelWorks = false;}
+                }
+            if (flagSelWorks){
             driver.navigate().to(li.getUrl());
             Long loc = System.currentTimeMillis();
             try {
                 driver.findElement(By.className("scoreboard__team-name"));
-            }catch (NoSuchElementException el){
+            } catch (NoSuchElementException el) {
                 logger.error(el);
-            }finally {
+            } finally {
 //                ((float)(System.currentTimeMillis() - loc) )/ 1000 )+ "с."
                 logger.info("       LocalTimeReqest(reqPages()):" +
                         (System.currentTimeMillis() - loc));
             }
             listSelDoc.add(driver.getPageSource());
-
+            }
         });
 //        ((float)(System.currentTimeMillis() - ll) )/ 1000 )+ "с."
         logger.info( "TimeReqest(reqPages()):" + (System.currentTimeMillis() - ll));

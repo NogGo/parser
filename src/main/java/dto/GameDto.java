@@ -4,7 +4,7 @@ package dto;
 import java.util.Date;
 import java.util.List;
 
-public class GemeDto {
+public class GameDto {
 
     private Long id;
     private Bk titleBk;
@@ -90,7 +90,7 @@ public class GemeDto {
 
     @Override
     public String toString() {
-        return "GemeDto{" +
+        return "GameDto{" +
                 "id=" + id +
                 ", titleBk=" + titleBk +
                 ", timeG=" + timeG +

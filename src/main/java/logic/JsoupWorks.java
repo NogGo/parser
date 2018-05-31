@@ -33,7 +33,14 @@ public class JsoupWorks {
                 Element aElement = divEl.child(4);
                 String urlAElement = aElement.attr("href");
                 String title = aElement.child(0).text();
-                list.add(new Article(urlMain + urlAElement, title));
+//
+                Elements periud = divEl.getElementsByAttributeValue("class", "c-events__overtime");
+//                String strPeriud = "";
+//                if (!periud.text().trim().equals("Перерыв")){
+//                    Integer  per = Integer.parseInt(periud.text().substring(0, 1));
+//                }
+//                logger.info("getLinks Периуд = " + periud.text());
+                list.add(new Article(urlMain + urlAElement, title, periud.text().trim()));
             });
         });
         return list;
