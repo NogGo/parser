@@ -33,9 +33,14 @@ public class HandlerMapper {
 
 
             Elements events = doc.getElementsByAttributeValue("class", "bet_group");
-            logger.info("Размер Всех ТМТБ bet_group = " +  events.size());
+//            logger.info("Размер Всех ТМТБ bet_group = " +  events.size());
+            events.forEach(li -> {
+                if (li.select("div.bet-title.bet-title_justify").text().trim().equals("Тотал. с ОТ")){
+                    logger.info("EHHHHHHFFFFFFFFFFFFFFFFFFFFFFF");
+                }
+            });
             String test1 = events.select("div.bet-title.bet-title_justify").text().trim();
-            logger.info("Размер Всех ТМТБ bet-title.bet-title_justify = " +  test1);
+            logger.info(test1);
             if (test1.equals("Тотал. с ОТ")){
                 logger.info("Размер Всех ТМТБ Тотал. с ОТ = ");
                 Elements TMTB = events.select("div.bets.betCols2");
