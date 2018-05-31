@@ -32,4 +32,13 @@ public class TeamDto {
     public void setEvent( List<EventDto> event) {
         this.event = event;
     }
+
+    @Override
+    public String toString() {
+        return "TeamDto{" +
+                "id=" + id +
+                ", nameTeam='" + nameTeam + '\'' +
+                ", event=" + event +
+                '}';
+    }
 }

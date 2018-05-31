@@ -33,13 +33,15 @@ public class SelenWorks {
             }catch (NoSuchElementException el){
                 logger.error(el);
             }finally {
+//                ((float)(System.currentTimeMillis() - loc) )/ 1000 )+ "с."
                 logger.info("       LocalTimeReqest(reqPages()):" +
-                        (((float)(System.currentTimeMillis() - loc) )/ 1000 )+ "с.");
+                        (System.currentTimeMillis() - loc));
             }
             listSelDoc.add(driver.getPageSource());
 
         });
-        logger.info( "TimeReqest(reqPages()):" + (((float)(System.currentTimeMillis() - ll) )/ 1000 )+ "с.");
+//        ((float)(System.currentTimeMillis() - ll) )/ 1000 )+ "с."
+        logger.info( "TimeReqest(reqPages()):" + (System.currentTimeMillis() - ll));
         return listSelDoc;
     }
 

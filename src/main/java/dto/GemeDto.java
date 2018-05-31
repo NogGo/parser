@@ -8,7 +8,7 @@ public class GemeDto {
 
     private Long id;
     private Bk titleBk;
-    private Date timeG; //???
+    private String  timeG;
     private TeamDto team1;
     private TeamDto team2;
     private String titleG;
@@ -32,11 +32,11 @@ public class GemeDto {
         this.titleBk = titleBk;
     }
 
-    public Date getTimeG() {
+    public String  getTimeG() {
         return timeG;
     }
 
-    public void setTimeG(Date timeG) {
+    public void setTimeG(String  timeG) {
         this.timeG = timeG;
     }
 
