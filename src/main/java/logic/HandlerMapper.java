@@ -32,36 +32,101 @@ public class HandlerMapper {
 //            dto.setEvent(getEvent(doc));
 
 
-            Elements events = doc.getElementsByAttributeValue("class", "bet_group");
-//            logger.info("Размер Всех ТМТБ bet_group = " +  events.size());
-            events.forEach(li -> {
-                if (li.select("div.bet-title.bet-title_justify").text().trim().equals("Тотал. с ОТ")){
-                    logger.info("EHHHHHHFFFFFFFFFFFFFFFFFFFFFFF");
-                }
-            });
-            String test1 = events.select("div.bet-title.bet-title_justify").text().trim();
-            logger.info(test1);
-            if (test1.equals("Тотал. с ОТ")){
-                logger.info("Размер Всех ТМТБ Тотал. с ОТ = ");
-                Elements TMTB = events.select("div.bets.betCols2");
-                 final int TmTbSize = TMTB.select("div[.bet_type]").size();
-                 logger.info("Размер Всех ТМТБ = " +  TmTbSize) ;
-//                TMTB.forEach(ev ->{
-////                if (!ev.child(0).isBlock() ){
-////                    for(int i = 0; i < TmTbSize; i++){
-////                for(Element iter : TMTB){
-//                    Element element = TMTB.child(i);
-//                    if (element.getElementsByAttributeValue("class", "blockSob").isEmpty()){
+//            Elements events = doc.getElementsByAttributeValue("class", "bet_group");
+////            logger.info("Размер Всех ТМТБ bet_group = " +  events.size());
+//            events.forEach(li -> {
+//                if (li.select("div.bet-title.bet-title_justify").text().trim().equals("Тотал. с Т")){
+////                    logger.info("EHHHHHHFFFFFFFFFFFFFFFFFFFFFFF");
+//                    Element elem = li.parent();
+//                    Elements count = elem.select("div.bets.betCols2");
+//                    count.forEach(lii->  {
+//                        logger.info("!!!!!!!!!!!!!!!!!!!!!!!" + lii.select("div.bet_type").text());
+//                    });
 //
-//                        logger.info("!!!!!!!!!!!!!!!" + element.getElementsByAttributeValue("class", "bet_type").text());
-//
-//                    }
 //                }
+//            });
+            Elements events = doc.getElementsByAttributeValue("class", "bet_group");
+            events.forEach(iter -> {
+//                Element elem = iter.child(0);
+//                logger.info("bet_group_col cols1!!!!");
+                if (iter.getElementsByAttributeValue("class", " bet-title bet-title_justify").text().trim().equals("Тотал. с ОТ")){
+                    Elements listTMTB = iter.getElementsByAttributeValue("class", "bets betCols2");
+                  if (!listTMTB.isEmpty()){
+                      Double event = 0.;
+                      boolean flag = false;
 
-//                    }
+                      for(Element lis : listTMTB){
+                          Elements  bet_type = lis.getElementsByAttributeValue("class", "bet_type");
+                          bet_type.forEach( lim -> {
+                              EventDto eventDto = new EventDto();
+                              String bet = lim.getElementsByAttributeValue("class", "bet_type").text().trim();
+                              logger.info(bet);
+                              String diapozon = bet.substring(bet.length(), bet.length());
+                              eventDto.setTitle(Double.parseDouble(bet.substring(0, 5)));
+                              logger.info(Double.parseDouble(bet.substring(0, 5)));
+                              if (diapozon.equals("Б")) {
+                                  logger.info(Double.parseDouble(lim.getElementsByAttributeValue("class", "koeff").text().trim()));
+                                  eventDto.setKefB(Double.parseDouble(lim.getElementsByAttributeValue("class", "koeff").text().trim()));
+                              }else{
+                                  logger.info(Double.parseDouble(lim.getElementsByAttributeValue("class", "koeff").text().trim()));
+                                  eventDto.setKefM(Double.parseDouble(lim.getElementsByAttributeValue("class", "koeff").text().trim()));
+                              }
+                              dto.getEvent().add(eventDto);
+                              });
+//                          if (diapozon.equals("Б") && (event != Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim()))){
+//                              eventDto.setKefB(Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim()));
+//                              event = eventDto.getKefB();
+//                          }else if (diapozon.equals("М") && event == Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim())){
+//                              eventDto.setKefM(Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim()));
+//                              flag = true;
+//                          }else if (diapozon.equals("Б") && (event == Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim()))){}
 //
-//                });
-            }
+//                          if (flag){
+//                              dto.getEvent().add(eventDto);
+//                              flag = false;
+//                          }
+                      }
+//                      listTMTB.forEach(lis -> {
+//                          EventDto eventDto = new EventDto();
+//                          eventDto.setTitle(Integer.parseInt(lis.getElementsByAttributeValue("class", "bet_type").text().trim().substring(0, 5)));
+//                          eventDto.setKefB(Double.parseDouble(lis.getElementsByAttributeValue("class", "koeff").text().trim()));
+//                          event = eventDto.getKefB();
+//                          eventDto.setKefM(lis);
+//                          iter
+//                      });
+                  }
+                }
+//                if (iter.select("div.bet-title.bet-title_justify").text().trim().equals("Тотал. с ОТ")){
+//                    logger.info("div.bet-title.bet-title_justify!!!!!!!");
+//                    logger.info(iter.parent());
+//                    logger.info(iter.parent().child(1).text());
+//                }
+            });
+//
+
+//            String test1 = events.select("div.bet-title.bet-title_justify").text().trim();
+//            logger.info(test1);
+//            if (test1.equals("Тотал. с ОТ")){
+//                logger.info("Размер Всех ТМТБ Тотал. с ОТ = ");
+//                Elements TMTB = events.select("div.bets.betCols2");
+//                 final int TmTbSize = TMTB.select("div[.bet_type]").size();
+//                 logger.info("Размер Всех ТМТБ = " +  TmTbSize) ;
+////                TMTB.forEach(ev ->{
+//////                if (!ev.child(0).isBlock() ){
+//////                    for(int i = 0; i < TmTbSize; i++){
+//////                for(Element iter : TMTB){
+////                    Element element = TMTB.child(i);
+////                    if (element.getElementsByAttributeValue("class", "blockSob").isEmpty()){
+////
+////                        logger.info("!!!!!!!!!!!!!!!" + element.getElementsByAttributeValue("class", "bet_type").text());
+////
+////                    }
+////                }
+//
+////                    }
+////
+////                });
+//            }
 
 
             games.add(dto);

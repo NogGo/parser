@@ -3,15 +3,15 @@ package dto;
 
 public class EventDto {
 
-    private Integer title;
+    private Double title;
     private Double kefM;
     private Double kefB;
 
-    public Integer getTitle() {
+    public Double getTitle() {
         return title;
     }
 
-    public void setTitle(Integer title) {
+    public void setTitle(Double title) {
         this.title = title;
     }
 
