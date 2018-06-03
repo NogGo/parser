@@ -3,31 +3,30 @@ package dto;
 
 public class EventDto {
 
-    private Double title;
-    private Double kefM;
-    private Double kefB;
+    private String  title;
+    private Double kef;
 
-    public Double getTitle() {
+    public String  getTitle() {
         return title;
     }
 
-    public void setTitle(Double title) {
+    public void setTitle(String  title) {
         this.title = title;
     }
 
-    public Double getKefM() {
-        return kefM;
+    public Double getKef() {
+        return kef;
     }
 
-    public void setKefM(Double kefM) {
-        this.kefM = kefM;
+    public void setKef(Double kef) {
+        this.kef = kef;
     }
 
-    public Double getKefB() {
-        return kefB;
-    }
-
-    public void setKefB(Double getKefB) {
-        this.kefB = getKefB;
+    @Override
+    public String toString() {
+        return "EventDto{" +
+                "title='" + title + '\'' +
+                ", kef=" + kef +
+                '}';
     }
 }

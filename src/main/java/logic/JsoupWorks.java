@@ -14,7 +14,6 @@ public class JsoupWorks {
     private static final Logger logger = Logger.getLogger(JsoupWorks.class);
 
     public List<Article> getAllUrls(String url, String urlMain) throws IOException {
-        logger.info("getAllUrls()");
         return getLinks(url, urlMain);
     }
 

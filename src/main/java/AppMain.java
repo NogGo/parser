@@ -7,6 +7,8 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class AppMain {
     private static final Logger logger = Logger.getLogger(AppMain.class);
@@ -20,15 +22,25 @@ public class AppMain {
         JsoupWorks jsoupWorks = new JsoupWorks();
         SelenWorks selen = new SelenWorks();
         HandlerMapper mapper = new HandlerMapper();
-        List<Article> listUrls = null;
-        try {
-            listUrls =  jsoupWorks.getAllUrls(URL, URL_MAIN);
-            List<Document> listDoc =  jsoupWorks.getDocFromStr(selen.reqPages(listUrls));
-            mapper.map(listDoc);
-        } catch (IOException e) {
-            logger.error(e);
-        }
-        selen.stop();
+
+
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                synchronized (this){
+                try {
+                    List<Article> listUrls =  jsoupWorks.getAllUrls(URL, URL_MAIN);
+                    List<Document> listDoc =  jsoupWorks.getDocFromStr(selen.reqPages(listUrls));
+                    mapper.map(listDoc);
+                } catch (IOException e) {
+                    logger.error(e);
+                }}
+            }
+        };
+//        Timer timer = new Timer(true);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(timerTask, 0, 180*1000);
+//        selen.stop();
     }
 }
 
