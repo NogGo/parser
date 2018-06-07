@@ -32,6 +32,8 @@ public class JsoupWorks {
             Elements periud = lin.getElementsByAttributeValue("class", "c-events__overtime");
             list.add(new Article(urlMain + urlAElement, title, periud.text().trim()));
         });
+        /*
+//        Old code
 //        Elements links = doc.getElementsByAttributeValue("class", "c-events__item c-events__item_col");
 //        logger.info("Size links: " + links.size());
 //        links.forEach(lin -> {
@@ -49,7 +51,7 @@ public class JsoupWorks {
 ////                logger.info("getLinks Периуд = " + periud.text());
 //                list.add(new Article(urlMain + urlAElement, title, periud.text().trim()));
 //            });
-//        });
+//        });*/
         return list;
     }
 

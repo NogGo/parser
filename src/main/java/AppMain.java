@@ -31,7 +31,7 @@ public class AppMain {
                 try {
                     List<Article> listUrls =  jsoupWorks.getAllUrls(URL, URL_MAIN);
                     if (listUrls == null || listUrls.isEmpty()){
-                        exProg(selen);
+                        exProg(selen, "Is Empty!!!!!!! Exit!!!");
                     }
                     logger.info(listUrls.size());
                     List<Document> listDoc =  jsoupWorks.getDocFromStr(selen.reqPages(listUrls));
@@ -39,6 +39,8 @@ public class AppMain {
                 } catch (Exception e) {
                     logger.error(e);
 //                }
+                }finally {
+                    exProg(selen, null);
                 }
 //            }
 //        };
@@ -47,8 +49,10 @@ public class AppMain {
 //        timer.scheduleAtFixedRate(timerTask, 0, 180*1000);
 //        selen.stop();
     }
-    public static void exProg(SelenWorks selen){
-        logger.info("Is Empty!!!!!!! Exit!!!");
+    public static void exProg(SelenWorks selen, String errMess){
+        if (errMess != null){
+        logger.info(errMess);
+        }
         selen.stop();
         System.exit(0);
     }
