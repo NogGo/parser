@@ -24,26 +24,27 @@ public class AppMain {
         HandlerMapper mapper = new HandlerMapper();
 
 
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
 //                synchronized (this){
                 try {
                     List<Article> listUrls =  jsoupWorks.getAllUrls(URL, URL_MAIN);
                     if (listUrls == null || listUrls.isEmpty()){
                         exProg(selen);
                     }
+                    logger.info(listUrls.size());
                     List<Document> listDoc =  jsoupWorks.getDocFromStr(selen.reqPages(listUrls));
                     mapper.map(listDoc);
-                } catch (IOException e) {
+                } catch (Exception e) {
                     logger.error(e);
 //                }
                 }
-            }
-        };
+//            }
+//        };
 //        Timer timer = new Timer(true);
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(timerTask, 0, 180*1000);
+//        Timer timer = new Timer();
+//        timer.scheduleAtFixedRate(timerTask, 0, 180*1000);
 //        selen.stop();
     }
     public static void exProg(SelenWorks selen){
