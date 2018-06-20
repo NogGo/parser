@@ -13,8 +13,12 @@ import java.util.List;
 public class HandlerMapper {
     private static final Logger logger = Logger.getLogger(HandlerMapper.class);
 
+    /**
+     * Main Mapper
+     * @param list
+     */
     public void map(List<Document> list){
-        logger.info("map() start");
+        logger.info("HandlerMapper, map() start");
         List<GameDto> games = new ArrayList<>();
         list.forEach(doc ->{
             GameDto dto = new GameDto();
@@ -29,10 +33,11 @@ public class HandlerMapper {
 
             games.add(dto);
         });
-        games.forEach(li -> {
-            logger.info(li.toString());
 
-        });
+//        games.forEach(li -> {
+//            logger.info(li.toString());
+//
+//        });
     }
 
     private void mapTeams(GameDto dto, Document doc ){
@@ -67,8 +72,8 @@ public class HandlerMapper {
         Elements periud = doc.getElementsByAttributeValue("class", "scoreboard__period");
         periud.forEach(per -> {
             if (!per.text().equals("Перерыв")){
-                dto.setPeriud(Integer.valueOf(per.text().substring(0, 1).trim()));
-            }
+                dto.setPeriud(per.text().substring(0, 1).trim());
+            } else  dto.setPeriud("Перерыв");
         });
     }
 

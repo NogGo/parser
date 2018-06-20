@@ -9,7 +9,7 @@ public class Article{
         this.url = url;
     }
 
-    public Article(String url, String name, String  periud) {
+    public Article(String url, String name, String periud) {
         this.url = url;
         this.name = name;
         this.periud = periud;

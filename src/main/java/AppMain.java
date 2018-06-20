@@ -15,39 +15,50 @@ public class AppMain {
 
     private static final String URL_MAIN = "https://1xstavka.ru/";
     private static final String URL = "https://1xstavka.ru/live/Basketball/";
-    private static final String CERTA = "===================================";
+    private static final String LINE = "===================================";
+    private static final String URL_MAIN_BETSITY = "https://1xstavka.ru/";
+    private static final String URL_BETSITY = "https://1xstavka.ru/live/Basketball/";
 
     public static void main(String[] args) {
-        logger.info(CERTA);
+        logger.info(LINE);
         JsoupWorks jsoupWorks = new JsoupWorks();
         SelenWorks selen = new SelenWorks();
         HandlerMapper mapper = new HandlerMapper();
 
 
-//        TimerTask timerTask = new TimerTask() {
-//            @Override
-//            public void run() {
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
 //                synchronized (this){
                 try {
                     List<Article> listUrls =  jsoupWorks.getAllUrls(URL, URL_MAIN);
                     if (listUrls == null || listUrls.isEmpty()){
                         exProg(selen, "Is Empty!!!!!!! Exit!!!");
                     }
-                    logger.info(listUrls.size());
                     List<Document> listDoc =  jsoupWorks.getDocFromStr(selen.reqPages(listUrls));
                     mapper.map(listDoc);
                 } catch (Exception e) {
                     logger.error(e);
-//                }
-                }finally {
-                    exProg(selen, null);
                 }
-//            }
-//        };
+//                }finally {
+//                    exProg(selen, null);
+//                }
+            }
+        };
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(timerTask, 0, 30*1000);
+        TimerTask timerTaskExit = new TimerTask() {
+            @Override
+            public void run() {
+                exProg(selen, "EXIT!");
+                timer.cancel();
+                timer.purge();
+            }
+        };
 //        Timer timer = new Timer(true);
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(timerTask, 0, 180*1000);
+
 //        selen.stop();
+        timer.scheduleAtFixedRate(timerTaskExit, 60*1000,0);
     }
     public static void exProg(SelenWorks selen, String errMess){
         if (errMess != null){

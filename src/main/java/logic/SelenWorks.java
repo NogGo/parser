@@ -21,10 +21,16 @@ public class SelenWorks {
     public SelenWorks(){
         start();
     }
+
+    /**
+     * Get PageSource
+     * @param list
+     * @return
+     */
     public  List<String> reqPages(List<Article> list){
-        logger.info("reqPages() start");
+        logger.info("SelenWorks, reqPages() start");
         List<String> listSelDoc = new ArrayList<>();
-        Long ll = System.currentTimeMillis();
+        Long startTimeAllreq = System.currentTimeMillis();
         list.forEach(li -> {
             boolean flagSelWorks = true;
                 if (!li.getPeriud().equals("Перерыв")){
@@ -33,30 +39,27 @@ public class SelenWorks {
                 }
             if (flagSelWorks){
             driver.navigate().to(li.getUrl());
-            Long loc = System.currentTimeMillis();
+            Long startTime = System.currentTimeMillis();
             try {
                 driver.findElement(By.className("scoreboard__team-name"));
             } catch (NoSuchElementException el) {
                 logger.error(el);
             } finally {
-//                ((float)(System.currentTimeMillis() - loc) )/ 1000 )+ "с."
-                logger.info("       LocalTimeReqest(reqPages()):" +
-                        (System.currentTimeMillis() - loc));
+                logger.info("TimeReqest(reqPages()):" + ((float)(System.currentTimeMillis() - startTime)/1000) + " с.");
             }
             listSelDoc.add(driver.getPageSource());
             }
         });
-//        ((float)(System.currentTimeMillis() - ll) )/ 1000 )+ "с."
-        logger.info( "TimeReqest(reqPages()):" + (System.currentTimeMillis() - ll));
+        logger.info( "TimeReqestAll(reqPages()):" + (float)(System.currentTimeMillis() - startTimeAllreq)/1000 + " c.");
         return listSelDoc;
     }
-
 
     private void start(){
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
+
     public void stop(){
         driver.quit();
         driver = null;

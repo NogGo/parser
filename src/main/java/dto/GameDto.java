@@ -13,7 +13,7 @@ public class GameDto {
     private TeamDto team2;
     private String titleG;
     private String urlGame; // из jsoup
-    private Integer periud; // <= 3
+    private String periud; // <= 3
     private List<EventDto> event;
 
     public Long getId() {
@@ -72,11 +72,11 @@ public class GameDto {
         this.urlGame = urlGame;
     }
 
-    public Integer getPeriud() {
+    public String getPeriud() {
         return periud;
     }
 
-    public void setPeriud(Integer periud) {
+    public void setPeriud(String periud) {
         this.periud = periud;
     }
 
