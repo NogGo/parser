@@ -34,10 +34,10 @@ public class HandlerMapper {
             games.add(dto);
         });
 
-//        games.forEach(li -> {
-//            logger.info(li.toString());
-//
-//        });
+        games.forEach(li -> {
+            logger.info(li.toString());
+
+        });
     }
 
     private void mapTeams(GameDto dto, Document doc ){

@@ -58,7 +58,7 @@ public class AppMain {
 //        Timer timer = new Timer(true);
 
 //        selen.stop();
-        timer.scheduleAtFixedRate(timerTaskExit, 60*1000,0);
+        timer.scheduleAtFixedRate(timerTaskExit, 60*1000,1);
     }
     public static void exProg(SelenWorks selen, String errMess){
         if (errMess != null){
