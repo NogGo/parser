@@ -13,11 +13,11 @@
 </ul>
 <h3> Предварительные технологии:</h3>
 <ul>
-<li>	Java 8</li>
-<li>	Spring(Framework , Security, MVC, Boot)</li>
+<li>	Java 10</li>
+<li>	Spring Boot</li>
 <li>	Hibernate</li>
 <li>	LiquiBase</li>
-<li>	PostgreSQL, NoSQL (аналог MongoDB) (Выбрать!)</li>
+<li>	PostgreSQL <s> NoSQL (аналог MongoDB) </s></li>
 <li>	nginx, consul</li>
 <li>	Rabbit MQ</li>
 <li>	Html, css, JS</li>
